@@ -1,0 +1,25 @@
+﻿version: "3.9"
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      SA_PASSWORD: "Aloma_23"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+    networks:
+      - backend
+
+  productapi:
+    image: productwebapi:v1
+    ports:
+      - "7070:7070"
+    depends_on:
+      - sqlserver
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
