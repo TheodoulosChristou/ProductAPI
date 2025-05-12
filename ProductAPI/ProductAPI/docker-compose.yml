@@ -12,9 +12,9 @@ services:
       - backend
 
   productapi:
-    image: productwebapi:v1
+    image: productwebapi:v7
     ports:
-      - "7070:7070"
+      - "7070:8080"
     depends_on:
       - sqlserver
     networks:

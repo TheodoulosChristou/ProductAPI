@@ -1,6 +1,6 @@
-﻿namespace ProductAPI.Entities
+﻿namespace ProductAPI.DTOs
 {
-    public class Product
+    public class ProductDTO
     {
         public int ProductId { get; set; }
 
@@ -8,9 +8,6 @@
 
         public decimal ProductPrice { get; set; }
 
-        //Map to Category Entity Relationship
         public int? CategoryId { get; set; }
-
-        public Category? Category { get; set; }
     }
 }
