@@ -87,6 +87,45 @@ namespace ProductAPI.ProductServices
             }
         }
 
+        public async Task<List<ProductDTOSearchResults>> SearchProductByCriteria(ProductCriteriaDTO request)
+        {
+           try
+            {
+                var result = _dbContext.Product.
+                    Include(p => p.Category)
+                    .AsEnumerable()
+                    .Select(p=> new ProductDTOSearchResults
+                        {
+                            ProductId = p.ProductId,
+                            ProductName = p.ProductName,
+                            Price = p.ProductPrice,
+                            CategoryName = p.Category?.CategoryName
+                    }
+                    ).ToList();
+
+                if(request is null)
+                {
+                    return result;
+                } 
+                
+                if(request.ProductName != null)
+                {
+                    result = result.Where(c => c.ProductName.Contains(request.ProductName)).ToList();
+                }
+
+                if (request.CategoryName != null)
+                {
+                    result = result.Where(c => c.CategoryName.Contains(request.CategoryName)).ToList();
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public async Task<ProductDTO> UpdateProduct(ProductDTO productRequest)
         {
             try

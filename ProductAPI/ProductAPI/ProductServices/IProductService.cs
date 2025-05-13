@@ -15,6 +15,8 @@ namespace ProductAPI.ProductServices
 
         public Task<BaseCommandResponse> DeleteProduct(ProductDTO productRequest);
 
+        public Task<List<ProductDTOSearchResults>> SearchProductByCriteria(ProductCriteriaDTO request);
+
 
     }
 }

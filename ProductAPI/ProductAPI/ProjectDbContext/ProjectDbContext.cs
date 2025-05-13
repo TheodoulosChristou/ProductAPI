@@ -15,10 +15,13 @@ namespace ProductAPI.ProjectDbContext
 
         public DbSet<Category> Category { get; set; }
 
+        public DbSet<User> User {  get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

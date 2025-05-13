@@ -39,6 +39,13 @@ namespace ProductAPI.Controllers
             return Ok(response);
         }
 
+        [HttpPost("SearchProducts")]
+        public async Task<ActionResult<List<ProductDTOSearchResults>>> SearchProducts([FromBody] ProductCriteriaDTO criteria)
+        {
+            var response = await _service.SearchProductByCriteria(criteria);
+            return Ok(response);
+        }
+
         [HttpPut("UpdateProduct")]
         public async Task<ActionResult<ProductDTO>> UpdateProduct([FromBody] ProductDTO productRequest)
         {
