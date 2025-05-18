@@ -11,6 +11,8 @@ namespace ProductAPI.MapperProfile
             CreateMap<Product, ProductDTO>().ReverseMap();
 
             CreateMap<Category, CategoryDTO>().ReverseMap();
+
+            CreateMap<User, UserDTO>().ReverseMap();
         }
     }
 }
