@@ -12,7 +12,7 @@ services:
       - backend
 
   productapi:
-    image: productwebapi:v11
+    image: productwebapi:v12
     ports:
       - "7070:8080"
     depends_on:

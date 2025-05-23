@@ -1,4 +1,6 @@
-﻿namespace ProductAPI.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace ProductAPI.Entities
 {
     public class Product
     {
@@ -12,5 +14,8 @@
         public int? CategoryId { get; set; }
 
         public Category? Category { get; set; }
+
+        [JsonIgnore]
+        public List<Order>? Orders { get; set; }
     }
 }
