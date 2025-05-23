@@ -8,15 +8,11 @@ namespace ProductAPI.Configurations
     {
         public void Configure(EntityTypeBuilder<Order> builder)
         {
-            builder.HasKey(o => new { o.OrderId, o.ProductId, o.UserId });
+            builder.HasKey(x => x.OrderId);
 
-            builder.HasOne(o=>o.Product)
-                .WithMany(p=>p.Orders)
-                .HasForeignKey(o=>o.ProductId);
+            builder.Property(x=>x.UserId).IsRequired();
 
-            builder.HasOne(o => o.User)
-                .WithMany(u => u.Orders)
-                .HasForeignKey(o => o.UserId);
+            builder.Property(x=>x.ProductId).IsRequired();
         }
     }
 }

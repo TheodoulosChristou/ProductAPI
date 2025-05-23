@@ -6,12 +6,10 @@
 
         public int ProductId { get; set; }
 
-        //Map Relationship to Product
-        public Product? Product { get; set; }
-
         public int UserId { get; set; }
 
-        //Map Relationship to User
-        public User? User { get; set; }
+        public Product? Product { get; set; }
+
+        public User? User { get; set; }  
     }
 }
