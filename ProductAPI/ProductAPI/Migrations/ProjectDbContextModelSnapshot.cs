@@ -10,7 +10,7 @@ using ProductAPI.ProjectDbContext;
 
 namespace ProductAPI.Migrations
 {
-    [DbContext(typeof(ProjectDbContext))]
+    [DbContext(typeof(ProjectDbContext.ProjectDbContext))]
     partial class ProjectDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

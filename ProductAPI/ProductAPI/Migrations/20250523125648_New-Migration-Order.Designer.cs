@@ -11,7 +11,7 @@ using ProductAPI.ProjectDbContext;
 
 namespace ProductAPI.Migrations
 {
-    [DbContext(typeof(ProjectDbContext))]
+    [DbContext(typeof(ProjectDbContext.ProjectDbContext))]
     [Migration("20250523125648_New-Migration-Order")]
     partial class NewMigrationOrder
     {
