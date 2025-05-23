@@ -13,6 +13,14 @@ namespace ProductAPI.Configurations
             builder.Property(x=>x.UserId).IsRequired();
 
             builder.Property(x=>x.ProductId).IsRequired();
+
+            builder.HasOne(x => x.Product)
+                .WithMany(p => p.Orders)
+                .HasForeignKey(x => x.ProductId);
+
+            builder.HasOne(x => x.User)
+                .WithMany(u => u.Orders)
+                .HasForeignKey(x => x.UserId);
         }
     }
 }

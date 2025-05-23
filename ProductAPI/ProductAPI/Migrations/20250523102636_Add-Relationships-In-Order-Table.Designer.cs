@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProductAPI.ProjectDbContext;
 
@@ -10,10 +11,12 @@ using ProductAPI.ProjectDbContext;
 
 namespace ProductAPI.Migrations
 {
-    [DbContext(typeof(ProjectDbContext))]
-    partial class ProjectDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(ProjectDbContext.ProjectDbContext))]
+    [Migration("20250523102636_Add-Relationships-In-Order-Table")]
+    partial class AddRelationshipsInOrderTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
